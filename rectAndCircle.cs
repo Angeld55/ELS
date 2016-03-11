@@ -67,8 +67,7 @@ namespace num2string_100_SC_SoftUni_home
                 
                 
                 //check tri in Circle
-                Console.WriteLine(rect);
-                Console.WriteLine(circle);
+                
                 bool inside = true;
                 bool presichatSe = false;
                 for (int t = 0; t < rect.allpoints.Length; t++)
