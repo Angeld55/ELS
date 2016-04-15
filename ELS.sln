@@ -1,0 +1,28 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.21005.1
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELS", "ELS\ELS.csproj", "{8806B876-EED0-41C6-8458-3D3091268020}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ELS.tests", "ELS.tests\ELS.tests.csproj", "{8150327A-048A-4F7B-9765-44CD41A7E304}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{8806B876-EED0-41C6-8458-3D3091268020}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8806B876-EED0-41C6-8458-3D3091268020}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8806B876-EED0-41C6-8458-3D3091268020}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8806B876-EED0-41C6-8458-3D3091268020}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8150327A-048A-4F7B-9765-44CD41A7E304}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8150327A-048A-4F7B-9765-44CD41A7E304}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8150327A-048A-4F7B-9765-44CD41A7E304}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8150327A-048A-4F7B-9765-44CD41A7E304}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
