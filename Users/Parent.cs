@@ -10,7 +10,7 @@ namespace ELS.Users
     public class Parent : User
     {
         private Student student;
-        public Parent(string name,long egn,Student student):base(name,egn)
+        public Parent(string name,string egn,Student student):base(name,egn)
         {
             this.student = student;
         }

@@ -14,7 +14,7 @@ namespace ELS
         private Dictionary<string, Teacher> teachers;
         private Dictionary<string, Student> students;
         private Dictionary<string,Class> schoolClasses;
-        public EducationalFacility(String DirectorName,long DirectorEGN)
+        public EducationalFacility(String DirectorName,string DirectorEGN)
         {
             Users = new Dictionary<string, User>();
             Director = new Director(DirectorName, DirectorEGN,this);
@@ -80,19 +80,19 @@ namespace ELS
             }
         }
 
-        public User Identify(String Name, long EGN)
+        public User Identify(String Name, string EGN)
         {
             if (!Users.ContainsKey(Name))
             {
                 throw new InvalidOperationException("No such user!");
             }
             User currentuser = Users[Name];
-            if (currentuser.EGN!=EGN)
+            if (currentuser.EGN != EGN)
             {
                 throw new InvalidOperationException("Invalid password!");
             }
             return currentuser;
-                
+
         }
        
     }

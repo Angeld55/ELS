@@ -13,7 +13,7 @@ namespace ELS.School
         private char letter;
         private Teacher ClassTeacher;
         private List<Student> students;
-        private bool initialized=false;// checks if the class is ready for work!(the numbers of the students are seted)
+        private bool initialized;// checks if the class is ready for work!(the numbers of the students are seted)
         private Dictionary<DateTime, List<Lesson>> lessons;
         public Class(short Grade,char letter,Teacher teacher,byte studentsInClass=30)
         {
@@ -22,6 +22,15 @@ namespace ELS.School
             this.Teacher = teacher;
             Students = new List<Student>(studentsInClass);
             Lessons=new Dictionary<DateTime,List<Lesson>>();
+            initialized = false; 
+        }
+
+        public bool isIntialized {
+            get
+            {
+                return initialized;
+            }  
+       
         }
         public short Grade 
         {

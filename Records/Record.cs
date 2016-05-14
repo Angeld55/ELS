@@ -13,12 +13,14 @@ namespace ELS.Records
         private DateTime date;
         private string note;
         private Teacher teacher;
+        private Student student; 
         public Record(Teacher teacher,DateTime Date,string note=null)
         {
             this.Teacher = teacher;
             this.Subject = teacher.Subject;
             this.Date = Date;
             this.Note = note;
+            this.Student = null;
         }
         public Teacher Teacher
         {
@@ -29,6 +31,18 @@ namespace ELS.Records
             private set
             {
                 this.teacher = value;
+            }
+        }
+
+        public Student Student
+        {
+            get
+            {
+                return this.student;
+            }
+            set
+            {
+                this.student = value;
             }
         }
         public string Subject 

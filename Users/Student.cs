@@ -19,7 +19,7 @@ namespace ELS.Users
         private List<Absence> absences;
         private List<Note> notes;
         private int unexcusedAbsences;
-        public Student(string name,long egn):base(name,egn)
+        public Student(string name,string egn):base(name,egn)
         {
             dayRecords=new Dictionary<DateTime,List<Record>>();
             gradesBySubject = new Dictionary<string, List<Grade>>();
@@ -113,6 +113,10 @@ namespace ELS.Users
         {
             return this.Name.CompareTo(other.Name);
         }
-        
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
     }
 }

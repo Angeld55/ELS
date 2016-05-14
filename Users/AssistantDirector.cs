@@ -8,7 +8,7 @@ namespace ELS.Users
 {
     public class AssistantDirector:Director
     {
-        public AssistantDirector(string name,long egn,EducationalFacility school):base(name,egn,school)
+        public AssistantDirector(string name,string egn,EducationalFacility school):base(name,egn,school)
         {
 
         }

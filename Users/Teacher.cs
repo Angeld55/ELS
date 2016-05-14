@@ -15,7 +15,7 @@ namespace ELS.Users
         private string subject;
         private Lesson currentLesson;
         private Class classOfTecher;
-        public Teacher(string name,long egn,string subject):base(name,egn)
+        public Teacher(string name,string egn,string subject):base(name,egn)
         {
             this.Subject = subject;
             lessons = new List<Lesson>();
@@ -100,8 +100,8 @@ namespace ELS.Users
             
             Grade gradeForStudent = new Grade(grade, this, lesson.DateOfLesson, note);
             lesson.LessonRecords.Add(gradeForStudent);
-           
-            ///
+
+            gradeForStudent.Student = student;
             if (!student.GradesBySubject.ContainsKey(Subject))
             {
                 student.GradesBySubject.Add(Subject, new List<Grade>());
@@ -125,7 +125,9 @@ namespace ELS.Users
         }
         public void AddAbsenceToStudent(Lesson lesson,Student student,string note)
         {
+
             Absence absenceForStudent = new Absence(this, lesson.DateOfLesson, note);
+            absenceForStudent.Student = student;
             lesson.LessonRecords.Add(absenceForStudent);
             student.Absences.Add(absenceForStudent);
             if (!student.DayRecords.ContainsKey(absenceForStudent.Date))
@@ -148,6 +150,7 @@ namespace ELS.Users
         public void AddNoteToStudent(Lesson lesson,Student student,string note=null)
         {
             Note noteForStudent = new Note(this, lesson.DateOfLesson, note);
+            noteForStudent.Student = student;
             
             student.Notes.Add(noteForStudent);
             if (!student.DayRecords.ContainsKey(lesson.DateOfLesson))
@@ -155,6 +158,7 @@ namespace ELS.Users
                 student.DayRecords.Add(lesson.DateOfLesson, new List<Record>());
             }
             student.DayRecords[lesson.DateOfLesson].Add(noteForStudent);
+            lesson.LessonRecords.Add(noteForStudent);
         }
         ///overload ->add note by students number
         public void AddNoteToStudent(Lesson lesson,byte StudentNumber,string note)

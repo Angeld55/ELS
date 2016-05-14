@@ -10,7 +10,7 @@ namespace ELS.Users
     public class Director : User
     {
         private EducationalFacility educationalFacility;
-        public Director(string name,long egn,EducationalFacility school):base(name,egn)
+        public Director(string name,string egn,EducationalFacility school):base(name,egn)
         {
             this.educationalFacility = school;
             EducationalFacility.Users.Add(this.Name, this);
@@ -39,20 +39,20 @@ namespace ELS.Users
             EducationalFacility.Classes.Add(schoolClass.ToString(), schoolClass);
           
         }
-        public void CreateTeacher(string name, long egn, string subject)
+        public void CreateTeacher(string name, string egn, string subject)
         {
             Teacher teacher = new Teacher(name, egn, subject);
             EducationalFacility.Users.Add(teacher.Name, teacher);
             EducationalFacility.Teachers.Add(teacher.Name, teacher);
             
         }
-        public void CreateStudent(string Name, long EGN)
+        public void CreateStudent(string Name, string EGN)
         {
             Student student = new Student(Name, EGN);
             EducationalFacility.Users.Add(student.Name, student);
             EducationalFacility.Students.Add(student.Name, student);
         }
-        public void CreateParent(string Name, long EGN, Student student)
+        public void CreateParent(string Name, string EGN, Student student)
         {
             Parent parent = new Parent(Name, EGN, student);
             student.Parent = parent;
@@ -72,13 +72,15 @@ namespace ELS.Users
         public void InitializeClass(Class schoolClass)
         {
             schoolClass.setStudentNumbers();
-
         }
 
-        public void CreateAssistantDirector(string Name,long EGN)
+        public void CreateAssistantDirector(string Name, string EGN)
         {
-            AssistantDirector assistantDirector = new AssistantDirector(Name, EGN, this.EducationalFacility);
-           
+            if (this.EducationalFacility.Users.ContainsKey(Name))
+            {
+                throw new InvalidOperationException("There is an user with this name");
+            }
+            AssistantDirector assistantDirector = new AssistantDirector(Name, EGN, this.EducationalFacility);          
         }
 
     }

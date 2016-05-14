@@ -5,14 +5,14 @@ using System.Text;
 using System.Threading.Tasks;
 
 namespace ELS.Users
-{ 
+{
     public abstract class User
-    {  
+    {
 
         private string NameOfUser;
-        private long egn;
-        
-        public User(string name,long egn)
+        private string egn;
+
+        public User(string name, string egn)
         {
             NameOfUser = name;
             this.egn = egn;
@@ -25,12 +25,45 @@ namespace ELS.Users
             }
 
         }
-        public long EGN
+        public string EGN
         {
             get
             {
                 return this.egn;
             }
+        }
+
+        public override string ToString()
+        {
+            return this.Name;
+        }
+        public static string userType(User user)
+        {
+            string typeOfUser = "";
+            if (user is Director) {
+                typeOfUser = "director";
+            }
+
+            if (user is Student)
+            {
+                typeOfUser = "student";
+            }
+
+            if (user is Teacher)
+            {
+                typeOfUser = "teacher";
+            }
+
+             if (user is Parent)
+            {
+                typeOfUser = "parent";
+            }
+
+             if (user is AssistantDirector) {
+                 typeOfUser = "AssDirector";
+             }
+           
+            return typeOfUser;
         }
     }
 }

@@ -108,5 +108,10 @@ namespace ELS.School
         {
             this.HomeWork = homework;
         }
+
+        public override string ToString()
+        {
+            return this.SchoolClass.ToString() + " " + this.Subject + " " + this.Teacher.ToString() + " " + this.DateOfLesson.ToString("dd/MM/yyyy");
+        }
     }
 }
